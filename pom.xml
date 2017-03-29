@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lenach</groupId>
+    <artifactId>totalbooker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <hibernate.version>5.2.9.Final</hibernate.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.11.1.RELEASE</version>
+        </dependency>
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.194</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- Liquibase -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>totalbooker</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <propertyFile>target/classes/liquibase.properties</propertyFile>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+    <profiles>
+    <profile>
+        <id>local</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <build>
+            <filters>
+                <filter>src/main/filters/local/db.properties</filter>
+            </filters>
+            <resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                    <filtering>true</filtering>
+                </resource>
+            </resources>
+        </build>
+    </profile>
+    </profiles>
+
+</project>
