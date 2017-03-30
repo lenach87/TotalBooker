@@ -12,6 +12,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * Created by o.chubukina on 30/03/2017.
+ */
+
 @Entity
 @Table(name = "TBUsers")
 public class User implements Serializable {

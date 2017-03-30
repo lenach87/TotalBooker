@@ -1,3 +1,7 @@
-com\lenach\totalbooker\data\TBUser.class
-com\lenach\totalbooker\data\TBRoom.class
+com\lenach\totalbooker\data\Room.class
+com\lenach\totalbooker\repository\RoomRepository.class
+com\lenach\totalbooker\repository\UserRepository.class
+com\lenach\totalbooker\service\UserService.class
+com\lenach\totalbooker\data\User.class
+com\lenach\totalbooker\service\RoomService.class
 com\lenach\totalbooker\config\AppConfig.class

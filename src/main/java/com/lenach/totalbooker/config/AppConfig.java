@@ -1,5 +1,6 @@
 package com.lenach.totalbooker.config;
 
+import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.Properties;
+
+/**
+ * Created by o.chubukina on 30/03/2017.
+ */
 
 @Configuration
 @PropertySource("classpath:/filters/local/db.properties")
@@ -35,6 +40,14 @@ public class AppConfig {
         driverManagerDataSource.setPassword(jdbcPassword);
 
         return driverManagerDataSource;
+    }
+
+    @Bean
+    public SpringLiquibase liquibase() {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
+        liquibase.setDataSource(myDataSource());
+        return liquibase;
     }
 
     @Bean
