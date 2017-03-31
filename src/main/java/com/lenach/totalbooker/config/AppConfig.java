@@ -19,17 +19,20 @@ import java.util.Properties;
  */
 
 @Configuration
-@PropertySource("classpath:/filters/local/db.properties")
+@PropertySource("classpath:liquibase.properties")
 public class AppConfig {
 
-    @Value("${database.driver}")
+    @Value("${driver}")
     private String jdbcDriver;
-    @Value("${database.url}")
+    @Value("${url}")
     private String jdbcURL;
-    @Value("${database.username}")
+    @Value("${username}")
     private String jdbcUsername;
-    @Value("${database.password}")
+    @Value("${password}")
     private String jdbcPassword;
+    @Value("${changeLogFile}")
+    private String changeLogFile;
+
 
     @Bean(name = "myDataSource")
     public DriverManagerDataSource myDataSource() {
@@ -45,7 +48,7 @@ public class AppConfig {
     @Bean
     public SpringLiquibase liquibase() {
         SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
+        liquibase.setChangeLog(changeLogFile);
         liquibase.setDataSource(myDataSource());
         return liquibase;
     }
@@ -60,7 +63,7 @@ public class AppConfig {
         adapter.setGenerateDdl(false);
         adapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
         factoryBean.setJpaVendorAdapter(adapter);
-        factoryBean.setPackagesToScan("mailoc");
+        factoryBean.setPackagesToScan("com.lenach.totalbooker");
         Properties jpaProp = new Properties();
         jpaProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         jpaProp.put("hibernate.hbm2ddl.auto", "update");

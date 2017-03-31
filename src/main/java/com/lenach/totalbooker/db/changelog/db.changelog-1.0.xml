@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="lenach" id="changelog-1.0">
+        <createTable tableName="User">
+            <column name="User_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="User_Name" type="TEXT">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="User">
+            <column name="User_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="User_Name" type="TEXT">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="Room">
+            <column name="Room_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="User_Name" type="TEXT">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="User">
+            <column name="User_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="User_Name" type="TEXT">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
