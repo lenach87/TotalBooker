@@ -3,9 +3,21 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="initializer com.lenach.totalbooker.config.WebInitializer servlet context" name="MVC dispatcher initializer servlet context" removed="true">
           <file>file://$MODULE_DIR$/src/main/java/com/lenach/totalbooker/config/AppConfig.java</file>
         </fileset>
+        <fileset id="initializer com.lenach.totalbooker.config.WebInitializer root context" name="MVC dispatcher initializer root context" removed="true" />
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/lenach/totalbooker/config/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/lenach/totalbooker/config/WebInitializer.java</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
       </configuration>
     </facet>
   </component>
