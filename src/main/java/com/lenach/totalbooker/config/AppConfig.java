@@ -66,14 +66,14 @@ public class AppConfig {
         factoryBean.setPackagesToScan("com.lenach.totalbooker");
         Properties jpaProp = new Properties();
         jpaProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        jpaProp.put("hibernate.hbm2ddl.auto", "update");
+        jpaProp.put("hibernate.hbm2ddl.auto", "update"); //todo: remove
         jpaProp.put("hibernate.show_sql", Boolean.parseBoolean("true"));
         jpaProp.put("hibernate.connection.charset", "UTF-8");
         jpaProp.put("hibernate.connection.release_mode", "auto");
         jpaProp.put("javax.persistence.validation.mode", "callback");
         factoryBean.setJpaProperties(jpaProp);
-        factoryBean.afterPropertiesSet();
-        factoryBean.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
+//        factoryBean.afterPropertiesSet();
+//        factoryBean.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
 
         return factoryBean;
     }
