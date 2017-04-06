@@ -1,17 +1,21 @@
 package com.lenach.totalbooker.service;
 
+import com.lenach.totalbooker.data.Booking;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 /**
  * Created by o.chubukina on 06/04/2017.
  */
-@
+@Service
 public interface BookingService {
-    Device save (Device device);
 
-    Page<Device> findAll(Pageable pageable);
+    Booking save (Booking device);
 
-    Device findOne(Long id);
+    List<Booking> findAll();
 
-    Page<Device> findByPattern(String pattern, Pageable pageable);
+    Booking findOne(long id);
 
-    void delete(Long id);
+    void delete(long id);
 }

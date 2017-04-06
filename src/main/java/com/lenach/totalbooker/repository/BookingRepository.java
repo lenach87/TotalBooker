@@ -1,5 +1,6 @@
 package com.lenach.totalbooker.repository;
 
+import com.lenach.totalbooker.data.Booking;
 import com.lenach.totalbooker.data.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface BookingRepository extends JpaRepository<User, Long> {
-
+public interface BookingRepository extends JpaRepository<Booking, Long> {
 
 }
