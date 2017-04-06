@@ -42,6 +42,5 @@ public class BookingServiceImpl implements BookingService {
     public void delete(long id) {
         bookingRepository.delete(id);
     }
-
 }
 

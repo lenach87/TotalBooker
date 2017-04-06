@@ -27,6 +27,9 @@
             <column name="Booking_ID" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
+            <column name="Room_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
             <column name="User_ID" type="BIGINT">
                 <constraints nullable="false" />
             </column>

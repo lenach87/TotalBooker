@@ -19,10 +19,10 @@ import java.util.List;
 @RequestMapping("/bookings")
 public class BookingController {
 
-    private BookingService bookingService;
+    private final BookingService bookingService;
 
     @Autowired
-    public void setBookingService(BookingService bookingService) {
+    public BookingController(BookingService bookingService) {
         this.bookingService = bookingService;
     }
 
