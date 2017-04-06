@@ -1,6 +1,7 @@
 package com.lenach.totalbooker.data;
 
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -22,17 +23,22 @@ public class Booking {
     @Column(name = "User_ID")
     private long user_id;
 
-    @Column
-    private LocalDateTime bookingTime;
+    @Column(name = "Start_time")
+    private LocalDateTime bookingTimeStart;
+
+    @Column(name = "Duration")
+    private Duration bookingDuration;
+
 
     public Booking() {
     }
 
-    public Booking(long room_id, long user_id, LocalDateTime bookingTime) {
+    public Booking(long room_id, long user_id, LocalDateTime bookingTimeStart, Duration bookingDuration) {
 
         this.room_id = room_id;
         this.user_id = user_id;
-        this.bookingTime = bookingTime;
+        this.bookingTimeStart = bookingTimeStart;
+        this.bookingDuration = bookingDuration;
     }
 
     public long getId() {
@@ -59,11 +65,19 @@ public class Booking {
         this.user_id = user_id;
     }
 
-    public LocalDateTime getBookingTime() {
-        return bookingTime;
+    public LocalDateTime getBookingTimeStart() {
+        return bookingTimeStart;
     }
 
-    public void setBookingTime(LocalDateTime bookingTime) {
-        this.bookingTime = bookingTime;
+    public void setBookingTimeStart(LocalDateTime bookingTimeStart) {
+        this.bookingTimeStart = bookingTimeStart;
+    }
+
+    public Duration getBookingDuration() {
+        return bookingDuration;
+    }
+
+    public void setBookingDuration(Duration bookingDuration) {
+        this.bookingDuration = bookingDuration;
     }
 }

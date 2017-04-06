@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="TotalBooker:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/TotalBooker_war_exploded</output-path>
+  <artifact type="exploded-war" build-on-make="true" name="TotalBooker:war exploded">
+    <output-path>$PROJECT_DIR$/target/TotalBooker</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -32,13 +32,21 @@
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.0" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-java8:5.2.9.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.4.1.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
           <element id="library" level="project" name="Maven: com.h2database:h2:1.4.194" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: org.liquibase:liquibase-core:3.5.3" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.17" />
           <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0.2" />
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/TotalBooker/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="TotalBooker/web/Web" />
     </root>
