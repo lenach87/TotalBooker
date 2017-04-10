@@ -30,7 +30,7 @@ public class BookingController {
     @RequestMapping(value="/allbookings", produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
-    List<Booking> listAllBookingsWithMarshalling() {
+    List<Booking> listAllBookings() {
         return bookingService.findAll();
     }
 

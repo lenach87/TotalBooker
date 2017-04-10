@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public interface RoomService {
 
-    Room save (Booking device);
+    Room save (Room room);
 
     List<Room> findAll();
 

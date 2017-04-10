@@ -1,6 +1,5 @@
 package com.lenach.totalbooker.service;
 
-import com.lenach.totalbooker.data.Booking;
 import com.lenach.totalbooker.data.User;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Service
 public interface UserService {
-    User save (Booking device);
+    User save (User user);
 
     List<User> findAll();
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="lenach" id="changelog-2.0">
+        <insert tableName="tb_users">
+            <column name="user_id" value="1" type="BIGINT"/>
+            <column name="user_name" value="user1" type="varchar(255)"/>
+        </insert>
+
+        <insert tableName="tb_rooms">
+            <column name="room_id" value="2" type="BIGINT"/>
+            <column name="room_name" value="room1" type="varchar(255)"/>
+        </insert>
+
+        <insert tableName="tb_bookings">
+            <column name="booking_id" value="3" type="BIGINT"/>
+            <column name="user_id" value="1" type="BIGINT"/>
+            <column name="room_id" value="2" type="BIGINT"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

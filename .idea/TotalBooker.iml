@@ -9,6 +9,7 @@
         <fileset id="initializer com.lenach.totalbooker.config.WebInitializer root context" name="MVC dispatcher initializer root context" removed="true" />
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/lenach/totalbooker/config/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/lenach/totalbooker/config/WebConfig.java</file>
         </fileset>
       </configuration>
     </facet>

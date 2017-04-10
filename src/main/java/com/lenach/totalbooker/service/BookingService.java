@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public interface BookingService {
 
-    Booking save (Booking device);
+    Booking save (Booking booking);
 
     List<Booking> findAll();
 

@@ -7,26 +7,22 @@ import java.io.Serializable;
  */
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Set;
 
 /**
  * Created by o.chubukina on 30/03/2017.
  */
 
 @Entity
-@Table(name = "TBUsers")
+@Table(name = "tb_users")
 public class User implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column (name = "User_ID")
+    @Column (name = "user_id")
     private long id;
 
 
-    @Column (name = "User_Name")
+    @Column (name = "user_name")
     private String name;
 
     public User() {

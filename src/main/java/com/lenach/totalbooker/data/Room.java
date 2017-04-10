@@ -17,16 +17,16 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "TBRooms")
+@Table(name = "tb_rooms")
 public class Room implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column (name = "Room_ID")
+    @Column (name = "room_id")
     private long id;
 
 
-    @Column (name = "Room_Name")
+    @Column (name = "room_name")
     private String name;
 
     public Room() {

@@ -15,10 +15,11 @@ import java.util.List;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
+
 
     @Autowired
-    public void setBookingRepository(BookingRepository bookingRepository) {
+    public BookingServiceImpl (BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
     }
 

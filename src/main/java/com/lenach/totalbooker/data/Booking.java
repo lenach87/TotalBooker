@@ -9,24 +9,24 @@ import java.time.LocalDateTime;
  */
 
 @Entity
-@Table(name = "Booking")
+@Table(name = "tb_bookings")
 public class Booking {
 
     @Id
     @GeneratedValue
-    @Column(name = "Booking_ID")
+    @Column(name = "booking_id")
     private long id;
 
-    @Column(name = "Room_ID")
+    @Column(name = "room_id")
     private long room_id;
 
-    @Column(name = "User_ID")
+    @Column(name = "user_id")
     private long user_id;
 
-    @Column(name = "Start_time")
+    @Column(name = "start_time")
     private LocalDateTime bookingTimeStart;
 
-    @Column(name = "Duration")
+    @Column(name = "duration")
     private Duration bookingDuration;
 
 

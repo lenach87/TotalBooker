@@ -1,21 +1,14 @@
 package com.lenach.totalbooker.config;
 
-import com.lenach.totalbooker.controllers.BookingController;
-import com.lenach.totalbooker.service.BookingService;
-import com.lenach.totalbooker.service.BookingServiceImpl;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.MediaType;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -43,6 +36,16 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     private String jdbcPassword;
     @Value("${changeLogFile}")
     private String changeLogFile;
+    @Value("${database.dialect}")
+    private String dialect;
+    @Value("${connection.charset}")
+    private String charset;
+    @Value("${connection.release_mode}")
+    private String release_mode;
+    @Value("${javax.persistence.validation.mode}")
+    private String validation_mode;
+    @Value("${show_sql}")
+    private String show_sql;
 
 
     @Bean(name = "myDataSource")
@@ -54,17 +57,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         driverManagerDataSource.setPassword(jdbcPassword);
 
         return driverManagerDataSource;
-    }
-
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.favorPathExtension(true).
-                favorParameter(false).
-                parameterName("mediaType").
-                ignoreAcceptHeader(true).
-                useJaf(false).
-                defaultContentType(MediaType.APPLICATION_JSON)
-                .mediaType("xml", MediaType.APPLICATION_XML)
-                .mediaType("json", MediaType.APPLICATION_JSON);
     }
 
     @Bean
@@ -83,15 +75,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setShowSql(true);
         adapter.setGenerateDdl(false);
-        adapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
+        adapter.setDatabasePlatform(dialect);
         factoryBean.setJpaVendorAdapter(adapter);
         factoryBean.setPackagesToScan("com.lenach.totalbooker");
         Properties jpaProp = new Properties();
-        jpaProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        jpaProp.put("hibernate.show_sql", Boolean.parseBoolean("true"));
-        jpaProp.put("hibernate.connection.charset", "UTF-8");
-        jpaProp.put("hibernate.connection.release_mode", "auto");
-        jpaProp.put("javax.persistence.validation.mode", "callback");
+        jpaProp.put("hibernate.dialect", dialect);
+        jpaProp.put("hibernate.show_sql", show_sql);
+        jpaProp.put("hibernate.connection.charset", charset);
+        jpaProp.put("hibernate.connection.release_mode", release_mode);
+        jpaProp.put("javax.persistence.validation.mode", validation_mode);
         factoryBean.setJpaProperties(jpaProp);
 
         return factoryBean;
