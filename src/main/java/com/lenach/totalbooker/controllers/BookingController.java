@@ -5,9 +5,7 @@ import com.lenach.totalbooker.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,13 @@ public class BookingController {
     public @ResponseBody
     List<Booking> listAllBookings() {
         return bookingService.findAll();
+    }
+
+    @RequestMapping(value="/{id}", produces={"application/xml", "application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody
+    Booking bookingById(@PathVariable(value = "id") long id) {
+        return bookingService.findOne(id);
     }
 
 }

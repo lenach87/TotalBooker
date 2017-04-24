@@ -1,11 +1,6 @@
 package com.lenach.totalbooker.data;
 
 import java.io.Serializable;
-
-/**
- * Created by o.chubukina on 30/03/2017.
- */
-
 import javax.persistence.*;
 
 /**

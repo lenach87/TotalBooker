@@ -33,7 +33,7 @@
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false" />
             </column>
-            <column name="start_time" type="TIMESTAMP">
+            <column name="start_time" type="BIGINT">
               <!--  <constraints nullable="false" />-->
             </column>
             <column name="duration" type="BIGINT">
