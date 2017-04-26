@@ -1,11 +1,8 @@
-package com.lenach.totalbooker.data;
+package com.lenach.totalbooker.data.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 /**
  * Created by o.chubukina on 24/04/2017.
@@ -16,12 +13,12 @@ public class DurationConverter implements AttributeConverter<Duration, Long> {
 
         @Override
         public Long convertToDatabaseColumn(Duration localDuration) {
-            return (localDuration == null ? null : localDuration.toMillis());
+            return (localDuration == null ? null : localDuration.toMinutes());
         }
 
         @Override
         public Duration convertToEntityAttribute(Long sqlDuration) {
-            return (sqlDuration == null ? null : Duration.ofMillis(sqlDuration));
+            return (sqlDuration == null ? null : Duration.ofMinutes(sqlDuration));
         }
 
 }

@@ -1,4 +1,4 @@
-package com.lenach.totalbooker.data;
+package com.lenach.totalbooker.data.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

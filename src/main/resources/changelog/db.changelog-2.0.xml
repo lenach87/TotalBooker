@@ -20,7 +20,7 @@
             <column name="user_id" value="1" type="BIGINT"/>
             <column name="room_id" value="2" type="BIGINT"/>
             <column name="start_time" value="1424812121078" type="BIGINT"/>
-            <column name="duration" value="14248" type="BIGINT"/>
+            <column name="duration" value="60" type="BIGINT"/>
         </insert>
 
     </changeSet>
