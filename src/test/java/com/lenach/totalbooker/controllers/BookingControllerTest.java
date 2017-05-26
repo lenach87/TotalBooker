@@ -62,7 +62,7 @@ public class BookingControllerTest {
         BookingService bookingService = new BookingServiceImpl(bookingRepository);
         BookingMapper bookingMapper = new BookingMapperImpl();
         BookingController controller = new BookingController(bookingService, bookingMapper);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).apply().build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @Test
