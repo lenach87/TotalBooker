@@ -11,7 +11,8 @@ import java.time.Duration;
 @Converter(autoApply = true)
 public class DurationConverter implements AttributeConverter<Duration, Long> {
 
-        @Override
+
+    @Override
         public Long convertToDatabaseColumn(Duration localDuration) {
             return (localDuration == null ? null : localDuration.toMinutes());
         }

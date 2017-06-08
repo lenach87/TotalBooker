@@ -1,5 +1,10 @@
 package com.lenach.totalbooker.data;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lenach.totalbooker.data.serializer.LocalDateTimeDeserializer;
+import com.lenach.totalbooker.data.serializer.LocalDateTimeSerializer;
+
 import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -18,25 +23,28 @@ public class Booking {
     private long id;
 
     @Column(name = "room_id")
-    private long room_id;
+    private long roomId;
 
     @Column(name = "user_id")
-    private long user_id;
+    private long userId;
 
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "start_time")
     private LocalDateTime bookingTimeStart;
 
     @Column(name = "duration")
-    private Duration bookingDuration;
+    private Long bookingDuration;
 
 
     public Booking() {
     }
 
-    public Booking(long room_id, long user_id, LocalDateTime bookingTimeStart, Duration bookingDuration) {
+    public Booking(long id, long room_id, long user_id, LocalDateTime bookingTimeStart, Long bookingDuration) {
 
-        this.room_id = room_id;
-        this.user_id = user_id;
+        this.id = id;
+        this.roomId = room_id;
+        this.userId = user_id;
         this.bookingTimeStart = bookingTimeStart;
         this.bookingDuration = bookingDuration;
     }
@@ -49,20 +57,20 @@ public class Booking {
         this.id = id;
     }
 
-    public long getRoom_id() {
-        return room_id;
+    public long getRoomId() {
+        return roomId;
     }
 
-    public void setRoom_id(long room_id) {
-        this.room_id = room_id;
+    public void setRoomId(long roomId) {
+        this.roomId = roomId;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public LocalDateTime getBookingTimeStart() {
@@ -73,11 +81,11 @@ public class Booking {
         this.bookingTimeStart = bookingTimeStart;
     }
 
-    public Duration getBookingDuration() {
+    public Long getBookingDuration() {
         return bookingDuration;
     }
 
-    public void setBookingDuration(Duration bookingDuration) {
+    public void setBookingDuration(Long bookingDuration) {
         this.bookingDuration = bookingDuration;
     }
 }

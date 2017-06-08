@@ -1,5 +1,7 @@
 package com.lenach.totalbooker.controllers;
 
+import com.lenach.totalbooker.controllers.mappers.BookingMapper;
+import com.lenach.totalbooker.controllers.viewmodel.BookingViewModel;
 import com.lenach.totalbooker.data.Booking;
 import com.lenach.totalbooker.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +16,19 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/bookings")
+@RequestMapping("/api/v1/bookings")
 public class BookingController {
 
     private final BookingService bookingService;
+    private final BookingMapper bookingMapper;
 
     @Autowired
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingService bookingService, BookingMapper bookingMapper) {
         this.bookingService = bookingService;
+        this.bookingMapper=bookingMapper;
     }
 
-
-    @RequestMapping(value="/allbookings", produces={"application/xml", "application/json"})
+    @RequestMapping(produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<Booking> listAllBookings() {
@@ -35,8 +38,7 @@ public class BookingController {
     @RequestMapping(value="/{id}", produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
-    Booking bookingById(@PathVariable(value = "id") long id) {
-        return bookingService.findOne(id);
+    BookingViewModel bookingById(@PathVariable(value = "id") long id) {
+        return bookingMapper.bookingToBookingModel(bookingService.findOne(id));
     }
-
 }
