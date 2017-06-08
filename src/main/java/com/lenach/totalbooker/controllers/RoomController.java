@@ -16,7 +16,7 @@ import java.util.List;
  * Created by o.chubukina on 04/04/2017.
  */
 @Controller
-@RequestMapping("/room-management")
+@RequestMapping("/api/v1/rooms")
 public class RoomController {
 
     private final RoomService roomService;
@@ -27,7 +27,7 @@ public class RoomController {
     }
 
 
-    @RequestMapping(value="/rooms", produces={"application/xml", "application/json"})
+    @RequestMapping(produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<Room> listAllRooms() {

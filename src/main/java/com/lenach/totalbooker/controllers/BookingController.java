@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/booking-management")
+@RequestMapping("/api/v1/bookings")
 public class BookingController {
 
     private final BookingService bookingService;
@@ -28,14 +28,14 @@ public class BookingController {
         this.bookingMapper=bookingMapper;
     }
 
-    @RequestMapping(value="/bookings", produces={"application/xml", "application/json"})
+    @RequestMapping(produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<Booking> listAllBookings() {
         return bookingService.findAll();
     }
 
-    @RequestMapping(value="/bookings/{id}", produces={"application/xml", "application/json"})
+    @RequestMapping(value="/{id}", produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     BookingViewModel bookingById(@PathVariable(value = "id") long id) {

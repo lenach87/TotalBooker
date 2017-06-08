@@ -10,7 +10,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @ComponentScan("com.lenach.totalbooker")
 @Profile("local")
-@Import({WebConfig.class, DataConfig.class, LiquibaseConfig.class, JPAConfig.class})
+@Import({WebConfig.class, DataConfig.class, LiquibaseConfig.class, JPAConfig.class, SecurityConfig.class})
 public class AppConfig {
 
 }

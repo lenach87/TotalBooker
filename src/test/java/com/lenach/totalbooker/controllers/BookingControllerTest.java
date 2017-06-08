@@ -76,9 +76,9 @@ public class BookingControllerTest {
         when(bookingRepository.findOne(4L)).thenReturn(first);
 
 
-        mockMvc.perform(get("/booking-management/bookings"))
+        mockMvc.perform(get("/api/v1/bookings"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"));
+                .andExpect(content().contentType("application/xml;charset=UTF-8"));
 
         verify(bookingRepository, times(1)).findAll();
         verifyNoMoreInteractions(bookingRepository);

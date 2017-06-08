@@ -15,7 +15,7 @@ import java.util.List;
  * Created by o.chubukina on 04/04/2017.
  */
 @Controller
-@RequestMapping("/user-management")
+@RequestMapping("/api/v1")
 public class UserController {
 
     private final UserService userService;
@@ -26,7 +26,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value="/users", produces={"application/xml", "application/json"})
+    @RequestMapping(value = "/users", produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<User> listAllUsers() {
