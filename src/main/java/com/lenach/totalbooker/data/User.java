@@ -18,15 +18,18 @@ public class User implements Serializable {
 
 
     @Column (name = "user_name")
-    private String name;
+    private String username;
+
+    @Column (name = "password")
+    private String password;
 
     public User() {
     }
 
-    public User(long id, String name) {
+    public User(String username, String password) {
 
-        this.id = id;
-        this.name = name;
+        this.username = username;
+        this.password = password;
     }
 
     public long getId() {
@@ -37,11 +40,19 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

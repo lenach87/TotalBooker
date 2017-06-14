@@ -40,9 +40,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(long id, long room_id, long user_id, LocalDateTime bookingTimeStart, Long bookingDuration) {
+    public Booking(long room_id, long user_id, LocalDateTime bookingTimeStart, Long bookingDuration) {
 
-        this.id = id;
         this.roomId = room_id;
         this.userId = user_id;
         this.bookingTimeStart = bookingTimeStart;

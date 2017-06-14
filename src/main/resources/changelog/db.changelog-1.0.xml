@@ -10,7 +10,8 @@
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
             <column name="user_name" type="VARCHAR">
-
+            </column>
+            <column name="password" type="VARCHAR">
             </column>
         </createTable>
 
