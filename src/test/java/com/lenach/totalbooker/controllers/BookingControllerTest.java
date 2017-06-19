@@ -70,7 +70,7 @@ public class BookingControllerTest {
 
         LocalDateTime ldt = LocalDateTime.now();
 
-        Booking first = new Booking(4L, 1L,2L, ldt, 60L);
+        Booking first = new Booking(1L,2L, ldt, 60L);
 
         when(bookingRepository.findAll()).thenReturn(Arrays.asList(first));
         when(bookingRepository.findOne(4L)).thenReturn(first);

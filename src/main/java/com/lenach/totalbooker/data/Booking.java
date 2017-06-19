@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lenach.totalbooker.data.serializer.LocalDateTimeDeserializer;
 import com.lenach.totalbooker.data.serializer.LocalDateTimeSerializer;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.Duration;
@@ -18,7 +19,17 @@ import java.time.LocalDateTime;
 public class Booking {
 
     @Id
-    @GeneratedValue
+    @GenericGenerator(
+            name = "hibernate_sequence",
+            strategy = "sequence",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(
+                            name = "hibernate_sequence",
+                            value = "sequence"
+                    )
+
+            })
+    @GeneratedValue(generator = "hibernate_sequence")
     @Column(name = "booking_id")
     private long id;
 
