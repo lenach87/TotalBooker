@@ -18,6 +18,9 @@ public class BookingViewModel {
         this.bookingDuration = bookingDuration;
     }
 
+    public BookingViewModel() {
+    }
+
     public long getId() {
         return id;
     }
