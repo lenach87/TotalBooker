@@ -1,4 +1,4 @@
-package com.lenach.totalbooker.controllers;
+package com.lenach.totalbooker.controllers.helpers;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.test.context.support.WithSecurityContext;

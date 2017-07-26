@@ -32,4 +32,13 @@ public class CreateBooking {
     public void setBookingDuration(String bookingDuration) {
         this.bookingDuration = bookingDuration;
     }
+
+    public CreateBooking(long roomId, String bookingTimeStart, String bookingDuration) {
+        this.roomId = roomId;
+        this.bookingTimeStart = bookingTimeStart;
+        this.bookingDuration = bookingDuration;
+    }
+
+    public CreateBooking() {
+    }
 }

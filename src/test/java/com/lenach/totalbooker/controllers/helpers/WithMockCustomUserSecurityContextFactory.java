@@ -1,4 +1,4 @@
-package com.lenach.totalbooker.controllers;
+package com.lenach.totalbooker.controllers.helpers;
 
 import com.lenach.totalbooker.data.User;
 import com.lenach.totalbooker.security.UserAccount;

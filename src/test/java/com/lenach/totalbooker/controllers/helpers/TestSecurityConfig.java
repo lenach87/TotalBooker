@@ -1,4 +1,4 @@
-package com.lenach.totalbooker.controllers;
+package com.lenach.totalbooker.controllers.helpers;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
