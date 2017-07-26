@@ -8,6 +8,7 @@
         <insert tableName="tb_users">
             <column name="user_id" value="1" type="BIGINT"/>
             <column name="user_name" value="user1" type="varchar(255)"/>
+            <column name="password" value="user1" type="varchar(255)"/>
         </insert>
 
         <insert tableName="tb_rooms">

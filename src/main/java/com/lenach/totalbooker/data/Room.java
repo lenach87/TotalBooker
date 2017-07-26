@@ -21,7 +21,7 @@ import java.util.Set;
 public class Room implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "room_id")
     private long id;
 

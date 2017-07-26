@@ -5,17 +5,20 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet author="lenach" id="changelog-1.0">
+        <createSequence sequenceName="hibernate_sequence"
+                        startValue="4" incrementBy="1" />
         <createTable tableName="tb_users">
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
             <column name="user_name" type="VARCHAR">
-
+            </column>
+            <column name="password" type="VARCHAR">
             </column>
         </createTable>
 
         <createTable tableName="tb_rooms">
-            <column name="room_id" type="BIGINT">
+            <column name="room_id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
             <column name="room_name" type="VARCHAR">
